@@ -4,6 +4,7 @@ import App from "./App";
 import NotFound from "./NotFound";
 import Homepage from "./Homepage";
 import CreateName from "./CreateName";
+import "../App.css";
 
 class Router extends React.Component {
   render() {

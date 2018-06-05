@@ -1,4 +1,4 @@
-const question = [
+const questions = [
   {
     ask: "Kto stworzył następujące dzieło?",
     img:
@@ -7,7 +7,7 @@ const question = [
       "Jan Matejko",
       "Henryk Siemiradzki",
       "Stanisław Wyspiański",
-      "Huj ci w dupe"
+      "Maksymilian Gierymski"
     ],
     correctAnswer: 0
   },
@@ -30,16 +30,35 @@ const question = [
     correctAnswer: 1
   },
   {
-    ask: " asdasdsadasas das dsaaaaaaaaaaaaaaaaaaaastępujące dzieło?",
+    ask: "Fryz arkadowy jest charakterystyczną cechą architektury:",
     img:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jan_Matejko%2C_Bitwa_pod_Grunwaldem.jpg/1920px-Jan_Matejko%2C_Bitwa_pod_Grunwaldem.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Morimondo_vista_4.JPG/1024px-Morimondo_vista_4.JPG",
+    answers: ["barokowej", "klasycystycznej", "gotyckiej", "romańskiej"],
+    correctAnswer: 3
+  },
+  {
+    ask: "Autotem poniższego obrazu jest:",
+    img:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Le_Bain_Turc%2C_by_Jean_Auguste_Dominique_Ingres%2C_from_C2RMF_retouched.jpg/1024px-Le_Bain_Turc%2C_by_Jean_Auguste_Dominique_Ingres%2C_from_C2RMF_retouched.jpg",
     answers: [
-      "Jan Matejko",
-      "Henryk Siemiradzki",
-      "Stanisław Wyspiański",
-      "Huj ci w dupe"
+      "Jacques-Louis Davida",
+      "Ferdinand Victor Eugène Delacroix",
+      "Jean-Auguste-Dominique Ingres",
+      "Marcello Bacciarelli"
     ],
-    correctAnswer: 0
+    correctAnswer: 2
+  },
+  {
+    ask: "Reprezentatem malarstwa romantycznego w malarstwie nie jest",
+    img:
+      "https://upload.wikimedia.org/wikipedia/commons/9/91/Caspar_David_Friedrich_-_Das_Kreuz_im_Gebirge.jpg",
+    answers: [
+      "Caspar David Friedrich",
+      "Piotr Michałowski",
+      "John Constable",
+      "Giovanni Battista Piranesi"
+    ],
+    correctAnswer: 3
   }
 ];
-export { question };
+export { questions };

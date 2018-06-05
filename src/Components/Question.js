@@ -1,63 +1,71 @@
 import React from "react";
-import { randomNumber } from "../helpers";
 
 class Question extends React.Component {
   state = {
-    getRandomNumber: randomNumber(this.props.question),
-    showLinkToAnotherQuestion: false
+    answerClicked: false,
+    disabled: null,
+    isCorrectAnswer: null
   };
 
-  checkAnswer = e => {
-    const { answers, correctAnswer } = this.props.question[
-      this.state.getRandomNumber
-    ];
+  handleClick = e => {
+    const { answers, correctAnswer } = this.props.question;
     if (e.target.textContent === answers[correctAnswer]) {
-      console.log("dobrze");
-      e.target.style.color = "green";
+      this.props.addScore();
       this.setState({
-        showLinkToAnotherQuestion: true
+        isCorrectAnswer: true
       });
+      e.target.style.color = "green";
     } else {
-      console.log("źle");
       e.target.style.color = "red";
+      this.setState({
+        isCorrectAnswer: false
+      });
     }
-  };
-
-  showNewQuestion = () => {
-    this.props.question.splice(this.state.getRandomNumber, 1);
     this.setState({
-      showLinkToAnotherQuestion: false,
-      getRandomNumber: randomNumber(this.props.question)
+      answerClicked: !this.state.answerClicked,
+      disabled: "disabled"
     });
   };
-  componentWillUnmount() {
-    console.log("unmounting");
-  }
-  componentWillUpdate() {
-    console.log("updating");
-  }
+  renderAnswers = key => {
+    return (
+      <button
+        key={key}
+        className={`btn list-group-item text-center ${this.state.disabled}`}
+        onClick={this.handleClick}
+        disabled={this.state.disabled}
+      >
+        {key}
+      </button>
+    );
+  };
+  showQuestion = () => {
+    this.setState({
+      answerClicked: !this.state.answerClicked,
+      disabled: null,
+      isCorrectAnswer: null
+    });
+    this.props.changeQuestion();
+  };
 
   render() {
-    const { ask, answers, img, correctAnswer } = this.props.question[
-      this.state.getRandomNumber
-    ];
-
+    const { ask, img, answers } = this.props.question;
     return (
       <React.Fragment>
-        <h1>{ask}</h1>
-        <img src={img} alt={img} style={{ maxWidth: "500px" }} />
-        <ul>
-          {answers.map(answer => (
-            <li key={answer} onClick={this.checkAnswer}>
-              {answer}
-            </li>
-          ))}
-        </ul>
-        {this.props.question.length > 1 &&
-          (this.state.showLinkToAnotherQuestion && (
-            <button onClick={this.showNewQuestion}>Continue</button>
-          ))}
-        <p>{answers[correctAnswer]}</p>
+        <div className="card text-center p-4">
+          <img
+            src={img}
+            alt="imgquestion"
+            className="m-auto"
+            style={{ maxWidth: "500px" }}
+          />
+          <h1 className="text-center my-3">{ask}</h1>
+          <div className="list-group list-group-flush">
+            {answers.map(this.renderAnswers)}
+          </div>
+          {this.state.answerClicked && (
+            <button onClick={this.showQuestion}>Show Next Question</button>
+          )}
+        </div>
       </React.Fragment>
     );
   }

@@ -9,7 +9,7 @@ class CreateName extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="container m-auto text-center">
         <form onSubmit={this.createName}>
           <h3>Please write your Name to Start</h3>
           <input
