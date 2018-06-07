@@ -5,9 +5,9 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <div className="background" />
         <div className="container m-auto">
-          <h2>Hello {this.props.match.params.userId}</h2>
-          <Test />
+          <Test name={this.props.match.params.userId} />
         </div>
       </React.Fragment>
     );

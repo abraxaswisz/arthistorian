@@ -4,6 +4,7 @@ import App from "./App";
 import NotFound from "./NotFound";
 import Homepage from "./Homepage";
 import CreateName from "./CreateName";
+import CreateQuiz from "./CreateQuiz";
 import "../App.css";
 
 class Router extends React.Component {
@@ -14,6 +15,11 @@ class Router extends React.Component {
           <Route exact path="/" component={Homepage} />
           <Route exact path="/username/:userId" component={App} />
           <Route exact path="/username" component={CreateName} />
+          <Route
+            exact
+            path="/username/:userId/:quizId"
+            component={CreateQuiz}
+          />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

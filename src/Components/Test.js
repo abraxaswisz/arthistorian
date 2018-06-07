@@ -9,6 +9,7 @@ class Test extends React.Component {
     questionNumber: 0,
     questionsLength: questions.length
   };
+
   componentWillMount() {
     console.log("mounting");
     this.setState({ questionNumber: randomNumber(this.state.stateQuestions) });
@@ -27,6 +28,7 @@ class Test extends React.Component {
       <React.Fragment>
         {!(this.state.stateQuestions.length === 0) && (
           <Question
+            name={this.props.name}
             question={this.state.stateQuestions[this.state.questionNumber]}
             changeQuestion={this.randomizeNumber}
             addScore={this.addScore}
@@ -34,7 +36,7 @@ class Test extends React.Component {
           />
         )}
         {this.state.stateQuestions.length === 0 && (
-          <p>
+          <p className="text-center">
             No more questions. Your Score is {this.state.score}/{
               this.state.questionsLength
             }

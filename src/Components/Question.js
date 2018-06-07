@@ -1,4 +1,6 @@
 import React from "react";
+import { mixArray } from "../helpers";
+import shuffle from "shuffle-array";
 
 class Question extends React.Component {
   state = {
@@ -8,8 +10,8 @@ class Question extends React.Component {
   };
 
   handleClick = e => {
-    const { answers, correctAnswer } = this.props.question;
-    if (e.target.textContent === answers[correctAnswer]) {
+    const { correctAnswer } = this.props.question;
+    if (e.target.textContent === correctAnswer) {
       this.props.addScore();
       this.setState({
         isCorrectAnswer: true
@@ -48,17 +50,21 @@ class Question extends React.Component {
   };
 
   render() {
-    const { ask, img, answers } = this.props.question;
+    const { ask, img } = this.props.question;
+    let answers = shuffle(this.props.question.answers);
     return (
       <React.Fragment>
-        <div className="card text-center p-4">
+        <div className="card text-center p-4 w-50 m-auto">
           <img
             src={img}
             alt="imgquestion"
-            className="m-auto"
-            style={{ maxWidth: "500px" }}
+            className="m-auto img-fluid"
+            style={{ maxWidth: "500px", maxHeight: "300px" }}
           />
-          <h1 className="text-center my-3">{ask}</h1>
+          <h3 className="text-center my-2">
+            {this.props.name + ", "}
+            {ask}
+          </h3>
           <div className="list-group list-group-flush">
             {answers.map(this.renderAnswers)}
           </div>

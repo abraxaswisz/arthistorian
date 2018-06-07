@@ -1,6 +1,6 @@
 const questions = [
   {
-    ask: "Kto stworzył następujące dzieło?",
+    ask: "Kto jest autorem poniższego obrazu?",
     img:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jan_Matejko%2C_Bitwa_pod_Grunwaldem.jpg/1920px-Jan_Matejko%2C_Bitwa_pod_Grunwaldem.jpg",
     answers: [
@@ -9,14 +9,14 @@ const questions = [
       "Stanisław Wyspiański",
       "Maksymilian Gierymski"
     ],
-    correctAnswer: 0
+    correctAnswer: "Jan Matejko"
   },
   {
     ask: "Z jakiego okresu pochodzi ta rzeźba",
     img:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Cappella_palluzzi-albertoni_di_giacomo_mola_%281622-25%29%2C_con_beata_ludovica_alberoni_di_bernini_%281671-75%29_e_pala_del_baciccio_%28s._anna_e_la_vergine%29_05.jpg/1280px-Cappella_palluzzi-albertoni_di_giacomo_mola_%281622-25%29%2C_con_beata_ludovica_alberoni_di_bernini_%281671-75%29_e_pala_del_baciccio_%28s._anna_e_la_vergine%29_05.jpg",
     answers: ["renesansu", "klasycyzmu", "manieryzmu", "baroku"],
-    correctAnswer: 3
+    correctAnswer: "baroku"
   },
   {
     ask: "Kto jest architektem Altes Museum w berlinie",
@@ -27,14 +27,14 @@ const questions = [
       "Carl Ferdinand Langhans",
       "Friedrich Wilhelm von Gärtner "
     ],
-    correctAnswer: 1
+    correctAnswer: "Carl Friedrich Schinkel"
   },
   {
     ask: "Fryz arkadowy jest charakterystyczną cechą architektury:",
     img:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Morimondo_vista_4.JPG/1024px-Morimondo_vista_4.JPG",
     answers: ["barokowej", "klasycystycznej", "gotyckiej", "romańskiej"],
-    correctAnswer: 3
+    correctAnswer: "romańskiej"
   },
   {
     ask: "Autotem poniższego obrazu jest:",
@@ -46,7 +46,7 @@ const questions = [
       "Jean-Auguste-Dominique Ingres",
       "Marcello Bacciarelli"
     ],
-    correctAnswer: 2
+    correctAnswer: "Jean-Auguste-Dominique Ingres"
   },
   {
     ask: "Reprezentatem malarstwa romantycznego w malarstwie nie jest",
@@ -58,7 +58,7 @@ const questions = [
       "John Constable",
       "Giovanni Battista Piranesi"
     ],
-    correctAnswer: 3
+    correctAnswer: "Giovanni Battista Piranesi"
   }
 ];
 export { questions };
